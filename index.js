@@ -29,6 +29,8 @@ AFRAME.registerComponent('layout', {
     });
 
     el.addEventListener('child-attached', function (evt) {
+      // Only update if direct child attached.
+      if (evt.detail.el.parentNode !== el) { return; }
       self.children.push(evt.detail.el);
       self.update();
     });
