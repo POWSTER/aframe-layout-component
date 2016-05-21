@@ -23,16 +23,22 @@ AFRAME.registerComponent('layout', {
    * Store initial positions in case need to reset on component removal.
    */
   init: function () {
+    var self = this;
     var el = this.el;
-    this.children = el.getChildEntities();
     var initialPositions = initialPositions = [];
 
-    this.children.forEach(function (childEl) {
+    this.children = el.getChildEntities();
+
+    this.children.forEach(function getInitialPositions (childEl) {
       initialPositions.push(childEl.getComputedAttribute('position'));
     });
 
-    this.childAttachedCallback = this.update.bind(this);
-    el.addEventListener('child-attached', this.childAttachedCallback);
+    el.addEventListener('child-attached', function (evt) {
+      // Only update if direct child attached.
+      if (evt.detail.el.parentNode !== el) { return; }
+      self.children.push(evt.detail.el);
+      self.update();
+    });
   },
 
   /**
