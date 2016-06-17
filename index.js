@@ -20,12 +20,12 @@ AFRAME.registerComponent('layout', {
   init: function () {
     var self = this;
     var el = this.el;
-    var initialPositions = initialPositions = [];
+    this.initialPositions = [];
 
     this.children = el.getChildEntities();
 
     this.children.forEach(function getInitialPositions (childEl) {
-      initialPositions.push(childEl.getComputedAttribute('position'));
+      self.initialPositions.push(childEl.getComputedAttribute('position'));
     });
 
     el.addEventListener('child-attached', function (evt) {
@@ -84,8 +84,8 @@ AFRAME.registerComponent('layout', {
    * Reset positions.
    */
   remove: function () {
-    el.removeEventListener('child-attached', this.childAttachedCallback);
-    setPositions(children, this.initialPositions);
+    this.el.removeEventListener('child-attached', this.childAttachedCallback);
+    setPositions(this.children, this.initialPositions);
   }
 });
 
