@@ -1,6 +1,7 @@
 ## aframe-layout-component
 
-3D layout component and helpers for A-Frame VR.
+Layout component for [A-Frame](https://aframe.io). Automatically position child
+entities in 3D space with several layouts to choose from.
 
 ![](https://cloud.githubusercontent.com/assets/674727/11851982/662a8dee-a3ea-11e5-92cf-4b814e2c494d.png)
 
