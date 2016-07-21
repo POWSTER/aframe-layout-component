@@ -1,9 +1,42 @@
 ## aframe-layout-component
 
-Layout component for [A-Frame](https://aframe.io). Automatically position child
-entities in 3D space with several layouts to choose from.
+Layout component for [A-Frame](https://aframe.io).
 
 ![](https://cloud.githubusercontent.com/assets/674727/11851982/662a8dee-a3ea-11e5-92cf-4b814e2c494d.png)
+
+Automatically positions child entities in 3D space, with several layouts to
+choose from. Define the layout on the parent entity:
+
+```html
+<a-entity layout="type: line; margin: 2">
+  <a-box></a-box>
+  <a-box></a-box>
+  <a-box></a-box>
+</a-entity>
+```
+
+And then the positions will automatically be calculated and set:
+
+```html
+<a-entity layout="type: line; margin: 2">
+  <a-box position="0 0 0"></a-box>
+  <a-box position="2 0 0"></a-box>
+  <a-box position="4 0 0"></a-box>
+</a-entity>
+```
+
+As entities are added or removed, the layout component will trigger a reflow on
+the positions.
+
+We move then entire group around while maintaining the layout:
+
+```html
+<a-entity layout="type: line; margin: 2" position="0 5 -5">
+  <a-box position="0 0 0"></a-box>
+  <a-box position="2 0 0"></a-box>
+  <a-box position="4 0 0"></a-box>
+</a-entity>
+```
 
 ### Properties
 
