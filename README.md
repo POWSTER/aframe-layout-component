@@ -6,11 +6,12 @@
 
 ### Properties
 
-| Property | Description                                                                               | Default Value |
+| Property  | Description                                                                               | Default Value |
 | --------- | -----------                                                                               | ------------- |
 | type      | Type of layout. Can be one of `box`, `circle`, `cube`, `dodecahedron`, `line`, `pyramid`. | `line`        |
-| margin    | Margin in meters.                                                                         | 1             |
-| radius    | Radius in meters.                                                                         | 1             |
+| column    | Number of columns (for type `box`).                                                       | 1             |
+| margin    | Margin in meters (for type `box`, `line`).                                                | 1             |
+| radius    | Radius in meters (for type `circle`, `cube`, `dodecahedron`, `pyramid`.                   | 1             |
 
 ### Usage
 
@@ -27,7 +28,7 @@ Install and use by directly including the [browser files](dist):
 
 <body>
   <a-scene>
-    <a-entity layout="type: circle; margin: 10">
+    <a-entity layout="type: circle; radius: 10">
       <a-entity geometry="primitive: box" material></a-entity>
       <a-entity geometry="primitive: box" material></a-entity>
       <a-entity geometry="primitive: box" material></a-entity>
