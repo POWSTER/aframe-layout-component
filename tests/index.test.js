@@ -1,8 +1,6 @@
-var Aframe = require('aframe-core');
-var layout = require('../index.js').component;
+var AFRAME = require('aframe');
 var entityFactory = require('./helpers').entityFactory;
-
-Aframe.registerComponent('layout', layout);
+require('../index.js');
 
 describe('layout', function () {
   beforeEach(function (done) {
@@ -20,6 +18,18 @@ describe('layout', function () {
         assert.equal(getPos(children[0]), '0 0 0');
         assert.equal(getPos(children[1]), '0 1 0');
         assert.equal(getPos(children[2]), '0 2 0');
+        done();
+      });
+    });
+  });
+
+  describe('remove', function () {
+    it('can reset positions', function (done) {
+      var el = this.el;
+      appendChildren(el, 2).then(function (children) {
+        el.setAttribute('layout', 'type: box; margin: 1');
+        el.removeAttribute('layout');
+        assert.equal(0, 1);
         done();
       });
     });
@@ -48,5 +58,5 @@ function appendChildren (el, n) {
 }
 
 function getPos (el) {
-  return Aframe.utils.coordinates.stringify(el.getAttribute('position'));
+  return AFRAME.utils.coordinates.stringify(el.getAttribute('position'));
 }
