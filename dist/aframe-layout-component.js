@@ -66,12 +66,13 @@
 	  init: function () {
 	    var self = this;
 	    var el = this.el;
-	    this.initialPositions = [];
 
 	    this.children = el.getChildEntities();
+	    this.initialPositions = [];
 
 	    this.children.forEach(function getInitialPositions (childEl) {
-	      self.initialPositions.push(childEl.getComputedAttribute('position'));
+	      var position = childEl.getComputedAttribute('position');
+	      self.initialPositions.push([position.x, position.y, position.z]);
 	    });
 
 	    el.addEventListener('child-attached', function (evt) {

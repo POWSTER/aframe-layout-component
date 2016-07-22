@@ -1,7 +1,7 @@
 {
   "name": "aframe-layout-component",
-  "version": "1.2.1",
-  "description": "3D layout component and helpers for A-Frame VR.",
+  "version": "1.2.2",
+  "description": "Layout component for A-Frame.",
   "main": "index.js",
   "scripts": {
     "build": "browserify examples/main.js -o examples/build.js",
