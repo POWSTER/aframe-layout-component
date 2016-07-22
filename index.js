@@ -25,8 +25,12 @@ AFRAME.registerComponent('layout', {
     this.initialPositions = [];
 
     this.children.forEach(function getInitialPositions (childEl) {
-      var position = childEl.getComputedAttribute('position');
-      self.initialPositions.push([position.x, position.y, position.z]);
+      if (childEl.hasLoaded) { return _getPositions(); }
+      childEl.addEventListener('loaded', _getPositions);
+      function _getPositions () {
+        var position = childEl.getComputedAttribute('position');
+        self.initialPositions.push([position.x, position.y, position.z]);
+      }
     });
 
     el.addEventListener('child-attached', function (evt) {
