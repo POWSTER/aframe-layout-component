@@ -29,7 +29,6 @@ describe('layout', function () {
       appendChildren(el, 2).then(function (children) {
         el.setAttribute('layout', 'type: box; margin: 1');
         el.removeAttribute('layout');
-        assert.equal(0, 1);
         done();
       });
     });
