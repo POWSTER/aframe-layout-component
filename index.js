@@ -74,6 +74,10 @@ AFRAME.registerComponent('layout', {
           positionFn = getSemiCirclePositions;
           break;
       }
+      case 'evenlyspacedarc': {
+          positionFn = getEvenlySpacedArcPositions;
+          break;
+      }
       case 'cube': {
         positionFn = getCubePositions;
         break;
@@ -185,6 +189,23 @@ function getSemiCirclePositions(data, numChildren, startPosition){
   }
 
   module.exports.getSemiCirclePositions = getSemiCirclePositions;
+
+  function getEvenlySpacedArcPositions(data, numChildren, startPosition){
+      var positions = [];
+
+
+      for (var i = 0; i < numChildren; i++) {
+        var ang = -i * data.spacing + (+data.angleOffset || 0);
+        positions.push([
+          startPosition.x + data.radius * (Math.cos(ang) * -1),
+          startPosition.y,
+          startPosition.z + data.radius * (Math.sin(ang) * 1)
+        ]);
+      }
+      return positions;
+    }
+
+    module.exports.getEvenlySpacedArcPositions = getEvenlySpacedArcPositions;
 
 /**
  * Get positions for `line` layout.
