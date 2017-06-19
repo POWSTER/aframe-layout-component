@@ -1,6 +1,6 @@
 {
   "name": "aframe-layout-component",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "description": "Layout component for A-Frame.",
   "main": "index.js",
   "browser": "dist/aframe-layout-component.min.js",
