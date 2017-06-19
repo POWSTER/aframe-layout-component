@@ -54,6 +54,8 @@
 	    margin: {default: 1, min: 0, if: {type: ['box', 'line']}},
 	    plane: {default: 'xy'},
 	    radius: {default: 1, min: 0, if: {type: ['circle', 'semicircle', 'cube', 'dodecahedron', 'pyramid']}},
+	    spacing: {default: 0, min: 0, if: {type: ['evenlyspacedarc']}},
+	    angleOffset: {default: 0, min: 0, if: {type: ['evenlyspacedarc']}},
 	    reverse: {default: false},
 	    type: {default: 'line', oneOf: ['box', 'circle', 'cube', 'dodecahedron', 'line',
 	                                    'pyramid']}
